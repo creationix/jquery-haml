@@ -16,9 +16,7 @@ var styles = ["dark-hive","sunny","ui-darkness","ui-lightness"];
 // Render the page
 $("body").haml(
   ["h1", "Welcome to haml-js"],
-  ["p",
-    "Feel free to look around.  Here is an index of all pages:",
-  ],
+  ["p", "Feel free to look around.  Here is an index of all pages:"],
   ["table.ui-widget.ui-widget-content.ui-corner-all",
     ["thead.ui-widget-header",
       ["tr",

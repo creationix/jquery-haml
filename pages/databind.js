@@ -39,7 +39,7 @@ function form(song, live)
       title:{type:"text"},
       description:{type:"textarea"},
       master_volume:{type:"slider",label:"Master Volume"},
-      eq:{type:"eq"},
+      eq:{type:"eq"}
     },song,notify)
   ];
 }

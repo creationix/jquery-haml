@@ -179,7 +179,7 @@ function form_builder(meta, data, notify)
         content = ["div", {style: "width:260px; margin:15px;", $:{
           slider: [{
             value: data[name],
-            change: function(event, ui) { data[name] = ui.value;notify(name); },
+            change: function(event, ui) { data[name] = ui.value;notify(name); }
           }],
           $: function() { if (disabled){this.slider('disable');} }
         }}];
