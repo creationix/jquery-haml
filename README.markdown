@@ -3,7 +3,9 @@ Haml-js
 
 Haml-js is a haml like language written in JSON. This allows for easy dom building so that web apps can do more work independent of the server for a better user experience.
 
-See <http://haml.hamptoncatlin.com/> for the original haml template language.
+See <http://static.creationix.com/haml_js/test.html> for a **demo**.
+
+Based on <http://haml.hamptoncatlin.com/> from the ruby world.
 
 Install jQuery plugin
 ---------------------
