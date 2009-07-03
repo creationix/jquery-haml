@@ -18,7 +18,7 @@ How to use
 * haml-js css syntax
 * haml-js js syntax
 
-### Turning the haml-hs into DOM HTML
+### Turning the haml-js JSON into DOM HTML
 
 * $.haml(...) docs
 * $("some css selector").haml(...) docs
