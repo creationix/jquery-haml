@@ -1,0 +1,2 @@
+
+run File.new('.')
