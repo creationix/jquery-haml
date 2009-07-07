@@ -27,7 +27,7 @@
       // Flush the action_queue once we're appended to a live element
       if (action_queue.length > 0)
       {
-        if (el[0].clientHeight > 0 || el[0].clientWidth > 0)
+        if (el.parents("body").length > 0)
         {
           $.each(action_queue, function(){
             // $ is a special case that means onload
@@ -47,7 +47,7 @@
       return result;
     }
   };
-
+  
   // The workhorse that creates the node.
   $.haml = function(haml){
   
@@ -70,6 +70,7 @@
         node.attr(this);
       }
       if (isTypeOf(this, 'String')) {node.append(this+"");}
+      if (isTypeOf(this, 'Number')) {node.append(this+"");}
       if (isTypeOf(this, 'Array')) {node.haml(this);}
     });
     
