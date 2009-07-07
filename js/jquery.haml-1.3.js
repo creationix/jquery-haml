@@ -27,10 +27,9 @@
       // Flush the action_queue once we're appended to a live element
       if (action_queue.length > 0)
       {
-        if (el[0].clientHeight > 0)
+        if (el[0].clientHeight > 0 || el[0].clientWidth > 0)
         {
           $.each(action_queue, function(){
-          
             // $ is a special case that means onload
             if (this.method == '$')
             {
@@ -92,7 +91,7 @@
     if (classes) {
       $.each(classes, function() {
         var klass = this.substr(1);
-        old_class = node.attr('class');
+        var old_class = node.attr('class');
         if (old_class) {
           node.attr('class', old_class + " " + klass);
         }

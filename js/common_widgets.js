@@ -1,26 +1,7 @@
 // requires jquery-ui
 
 // Test an object for it's constructor type. Sort of a reverse, discriminatory instanceof
-function isTypeOf(t, c){ if (t === undefined) {return 'undefined';} return t.constructor.toString().match(new RegExp(c, 'i')) !== null; }
-
-
-function each(obj, fn)
-{
-  if (isTypeOf(obj, "Array"))
-  {
-    for (i in obj) {
-      fn(i, obj[i]);
-    }
-  }
-  else {
-    for (var k in obj) { 
-      if (obj.hasOwnProperty(k)) {
-        fn(k, obj[k]);
-      }
-    }
-  }
-  return obj;
-}
+function isTypeOf(t, c){ if (t === undefined) {return c == 'Undefined';} return t.constructor.toString().match(new RegExp(c, 'i')) !== null; }
 
 function trace(message, obj)
 {
@@ -31,26 +12,41 @@ function trace(message, obj)
 function collect(obj, fn)
 {
   var accum = [];
-  each(obj, function(i,v){ accum.push(fn(i,v)); });
+  jQuery.each(obj, function(i,v){ 
+    accum.push(fn(i,v)); 
+  });
   return accum;
 }
 
+function filter(obj, fn)
+{
+  var accum = [];
+  jQuery.each(obj, function(i,v){
+    if (fn(i,v)) {
+      accum.push(v);
+    }
+  });
+  return accum;
+}
+
+// Kinda like a var_export for json data
 function inspect(data, limit) {
   if (limit === undefined) {
     limit = 5;
   }
   if (limit <= 0) {return "...";}
+  var accum;
   if (isTypeOf(data, "Array")) {
-    var accum = ["ul"];
-    each(data, function(k,v){ accum.push(["li", inspect(v, limit-1)]); });
+    accum = ["ul"];
+    jQuery.each(data, function(k,v){ accum.push(["li", inspect(v, limit-1)]); });
     return accum;
   }
   else if (isTypeOf(data, "String")) {
     return '"'+data.replace(/\"/g,'\\"').replace(/\t/g,'\\t').replace(/\n/g,'\\n')+'"';
   }
   else if (isTypeOf(data, "Object")) {
-    var accum = ["dl"];
-    each(data, function(k,v){
+    accum = ["dl"];
+    jQuery.each(data, function(k,v){
       accum.push(["dt", k+":"]);
       accum.push(["dd", inspect(v, limit-1)]);
     });
@@ -64,8 +60,8 @@ function inspect(data, limit) {
 
 function small_header(options, content)
 {
-  return ["p.ui-state-default ui-corner-all", {
-      style: "padding:4px;margin: 10px 0"
+  return [".ui-state-default ui-corner-all", {
+      style: "padding:4px;margin: 0 0 10px 0"
     },
     ["span.ui-icon.ui-icon-" + options.icon, {style: "float:left; margin:-2px 5px 0 0;" }],
     content
