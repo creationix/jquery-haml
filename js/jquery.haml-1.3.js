@@ -8,7 +8,29 @@
 
   var action_queue = [];
 
-  // Make available as a chainable command.
+  // Treat the textual content of a node as markdown and convert to html.
+  $.fn.markdown = function(data) {
+    var markdown = $(this).html();
+    var html = $.markdown(markdown, data);
+  	return this.each(function(){ $(this).html(html); });
+  };
+  
+  // Converts markdown to html
+  // Also supports simple variable replacement
+  //
+  // NOTE: This requires <http://attacklab.net/showdown/>
+  $.markdown = function (markdown, data) {
+    converter = new Showdown.converter();
+    var html =  converter.makeHtml(markdown);
+    if (data) {
+      $.each(data, function(k, v) {
+        html = html.replace("{"+k+"}", v, "g");
+      });
+    }
+    return html;
+  }
+  
+  // Calling haml on a node converts the passed in array to dom children
   $.fn.haml = function() {
     var haml = arguments;
     if (haml.length == 1) {haml = haml[0];}

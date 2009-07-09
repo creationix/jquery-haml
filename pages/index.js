@@ -6,10 +6,11 @@ function getparam(key, d) {
 var pages = {
   "index": "Index Page",
   "ui-demo": "jQuery UI samples",
-  "databind": "DataBinding example"
+  "databind": "DataBinding example",
+  "markdown": "Markdown and variable replacement example"
 };
 
-var page_keys = ["index", "databind", "ui-demo"];
+var page_keys = ["index", "databind", "ui-demo", 'markdown'];
 
 var styles = ["dark-hive","sunny","ui-darkness","ui-lightness"];
 

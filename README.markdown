@@ -123,6 +123,34 @@ Also, for advanced usage you can call the `$.haml` function directly.  This func
 
     var haml = ["p", "Hello "]
     var element = $.haml(...)
+    
+### Markdown integration
+
+One thing that haml is terrible at is content text.  The mixture of a tags, em tags, ul, li, etc can get out of hand very quickly.
+
+I've found that markdown is an excellent tool for this part.  The haml like dom builder is great for structure and logic while markdown is good for content generation.
+
+**haml-js**
+
+    var data = {
+      name: "World",
+      website: "http://creationix.com/",
+      title: "My Website"
+    };
+    var markdown = "# Hello {name}\n\nThis *is* **a** paragraph.\n\nClick [here]({website} \"{title}\") for fun.";
+    $('body').haml(
+      ["#content", {$:{ markdown:[data]}}, markdown]
+    );
+    
+**html**
+
+    <div id="content">
+      <h1>Hello World</h1>
+      <p>This <em>is</em> <strong>a</strong> paragraph.</p>
+      <p>Click <a title="My Website" href="http://creationix.com/">here</a> for fun.</p>
+    </div>
+
+This has variable replacement within the markdown and then markdown parsing to html.
 
 ### Advanced examples
 

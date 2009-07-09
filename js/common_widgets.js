@@ -1,5 +1,14 @@
 // requires jquery-ui
 
+if (typeof Object.create !== 'function') {
+    Object.create = function (o) {
+        function F() {}
+        F.prototype = o;
+        return new F();
+    };
+}
+
+
 // Test an object for it's constructor type. Sort of a reverse, discriminatory instanceof
 function isTypeOf(t, c){ if (t === undefined) {return c == 'Undefined';} return t.constructor.toString().match(new RegExp(c, 'i')) !== null; }
 
