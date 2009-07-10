@@ -1,0 +1,563 @@
+#components.clearfix
+  #getBookmarklet
+    %p
+      %span.icon
+      %strong{$:{click:[function(){alert("Hello {\"}");}]}}
+        New!
+      Bring ThemeRoller into any page:
+      %a{ href: "/themeroller/developertool/" }
+        Get the ThemeRoller Firefox Bookmarklet!
+  #compGroupA.clearfix
+    %h2.demoHeaders
+      Accordion
+    #accordion.ui-accordion.ui-widget.ui-helper-reset{ role: "tablist" }
+      %h3.ui-accordion-header.ui-helper-reset.ui-state-active.ui-corner-top{ tabindex: "0", "aria-expanded": "true", role:  "tab" }
+        %span.ui-icon.ui-icon-triangle-1-s
+        %a{ tabindex: "-1", href: "#" }
+          Section 1
+      .ui-accordion-content.ui-helper-reset.ui-widget-content.ui-corner-bottom.ui-accordion-content-active{ role:  "tabpanel", style: "height: 148px;" }
+        %p
+          Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+      %h3.ui-accordion-header.ui-helper-reset.ui-state-default.ui-corner-all{ tabindex: "-1", "aria-expanded": "false", role:  "tab" }
+        %span.ui-icon.ui-icon-triangle-1-e
+        %a{ tabindex: "-1", href: "#" }
+          Section 2
+      .ui-accordion-content.ui-helper-reset.ui-widget-content.ui-corner-bottom{ role:  "tabpanel", style: "height: 148px; display: none;" }
+        %p
+          Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In suscipit faucibus urna.
+      %h3.ui-accordion-header.ui-helper-reset.ui-state-default.ui-corner-all{ tabindex: "-1", "aria-expanded": "false", role:  "tab" }
+        %span.ui-icon.ui-icon-triangle-1-e
+        %a{ tabindex: "-1", href: "#" }
+          Section 3
+      .ui-accordion-content.ui-helper-reset.ui-widget-content.ui-corner-bottom{ role:  "tabpanel", style: "height: 148px; display: none;" }
+        %p
+          Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis. Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+        %ul
+          %li
+            List item one
+          %li
+            List item two
+          %li
+            List item three
+    %h2.demoHeaders
+      Tabs
+    #tabs.ui-tabs.ui-widget.ui-widget-content.ui-corner-all
+      %ul.ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all
+        %li.ui-state-default.ui-corner-top.ui-tabs-selected.ui-state-active
+          %a{ href: "#tabs-1" }
+            First
+        %li.ui-state-default.ui-corner-top
+          %a{ href: "#tabs-2" }
+            Second
+        %li.ui-state-default.ui-corner-top
+          %a{ href: "#tabs-3" }
+            Third
+      #tabs-1.ui-tabs-panel.ui-widget-content.ui-corner-bottom
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      #tabs-2.ui-tabs-panel.ui-widget-content.ui-corner-bottom.ui-tabs-hide
+        Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.
+      #tabs-3.ui-tabs-panel.ui-widget-content.ui-corner-bottom.ui-tabs-hide
+        Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.
+    %h2.demoHeaders
+      Dialog
+    %p
+      %a#dialog_link.ui-state-default.ui-corner-all{ href: "#" }
+        %span.ui-icon.ui-icon-newwin
+        Open Dialog
+    %h2.demoHeaders
+      Overlay and Shadow Classes
+    .fakewindowcontain{ style: "padding: 1% 4%; overflow: hidden; position: relative; width: 96%; height: 200px;" }
+      %p
+        Lorem ipsum dolor sit amet,  Nulla nec tortor. Donec id elit quis purus consectetur consequat.
+      %p
+        Nam congue semper tellus. Sed erat dolor, dapibus sit amet, venenatis ornare, ultrices ut, nisi. Aliquam ante. Suspendisse scelerisque dui nec velit. Duis augue augue, gravida euismod, vulputate ac, facilisis id, sem. Morbi in orci.
+      %p
+        Nulla purus lacus, pulvinar vel, malesuada ac, mattis nec, quam. Nam molestie scelerisque quam. Nullam feugiat cursus lacus.orem ipsum dolor sit amet, consectetur adipiscing elit. Donec libero risus, commodo vitae, pharetra mollis, posuere eu, pede. Nulla nec tortor. Donec id elit quis purus consectetur consequat.
+      %p
+        Nam congue semper tellus. Sed erat dolor, dapibus sit amet, venenatis ornare, ultrices ut, nisi. Aliquam ante. Suspendisse scelerisque dui nec velit. Duis augue augue, gravida euismod, vulputate ac, facilisis id, sem. Morbi in orci. Nulla purus lacus, pulvinar vel, malesuada ac, mattis nec, quam. Nam molestie scelerisque quam.
+      %p
+        Nullam feugiat cursus lacus.orem ipsum dolor sit amet, consectetur adipiscing elit. Donec libero risus, commodo vitae, pharetra mollis, posuere eu, pede. Nulla nec tortor. Donec id elit quis purus consectetur consequat. Nam congue semper tellus. Sed erat dolor, dapibus sit amet, venenatis ornare, ultrices ut, nisi. Aliquam ante.
+      %p
+        Suspendisse scelerisque dui nec velit. Duis augue augue, gravida euismod, vulputate ac, facilisis id, sem. Morbi in orci. Nulla purus lacus, pulvinar vel, malesuada ac, mattis nec, quam. Nam molestie scelerisque quam. Nullam feugiat cursus lacus.orem ipsum dolor sit amet, consectetur adipiscing elit. Donec libero risus, commodo vitae, pharetra mollis, posuere eu, pede. Nulla nec tortor. Donec id elit quis purus consectetur consequat.
+      .ui-overlay
+        .ui-widget-overlay
+        .ui-widget-shadow.ui-corner-all{ style: "width: 302px; height: 152px; position: absolute; left: 50px; top: 30px;" }
+      .ui-widget.ui-widget-content.ui-corner-all{ style: "padding: 10px; position: absolute; width: 280px; height: 130px; left: 50px; top: 30px;" }
+        %p
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    %h2.demoHeaders
+      Framework Icons (content color preview)
+    %ul#icons.ui-widget.ui-helper-clearfix
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-carat-1-n" }
+        %span.ui-icon.ui-icon-carat-1-n
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-carat-1-ne" }
+        %span.ui-icon.ui-icon-carat-1-ne
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-carat-1-e" }
+        %span.ui-icon.ui-icon-carat-1-e
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-carat-1-se" }
+        %span.ui-icon.ui-icon-carat-1-se
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-carat-1-s" }
+        %span.ui-icon.ui-icon-carat-1-s
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-carat-1-sw" }
+        %span.ui-icon.ui-icon-carat-1-sw
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-carat-1-w" }
+        %span.ui-icon.ui-icon-carat-1-w
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-carat-1-nw" }
+        %span.ui-icon.ui-icon-carat-1-nw
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-carat-2-n-s" }
+        %span.ui-icon.ui-icon-carat-2-n-s
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-carat-2-e-w" }
+        %span.ui-icon.ui-icon-carat-2-e-w
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-triangle-1-n" }
+        %span.ui-icon.ui-icon-triangle-1-n
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-triangle-1-ne" }
+        %span.ui-icon.ui-icon-triangle-1-ne
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-triangle-1-e" }
+        %span.ui-icon.ui-icon-triangle-1-e
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-triangle-1-se" }
+        %span.ui-icon.ui-icon-triangle-1-se
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-triangle-1-s" }
+        %span.ui-icon.ui-icon-triangle-1-s
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-triangle-1-sw" }
+        %span.ui-icon.ui-icon-triangle-1-sw
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-triangle-1-w" }
+        %span.ui-icon.ui-icon-triangle-1-w
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-triangle-1-nw" }
+        %span.ui-icon.ui-icon-triangle-1-nw
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-triangle-2-n-s" }
+        %span.ui-icon.ui-icon-triangle-2-n-s
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-triangle-2-e-w" }
+        %span.ui-icon.ui-icon-triangle-2-e-w
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrow-1-n" }
+        %span.ui-icon.ui-icon-arrow-1-n
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrow-1-ne" }
+        %span.ui-icon.ui-icon-arrow-1-ne
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrow-1-e" }
+        %span.ui-icon.ui-icon-arrow-1-e
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrow-1-se" }
+        %span.ui-icon.ui-icon-arrow-1-se
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrow-1-s" }
+        %span.ui-icon.ui-icon-arrow-1-s
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrow-1-sw" }
+        %span.ui-icon.ui-icon-arrow-1-sw
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrow-1-w" }
+        %span.ui-icon.ui-icon-arrow-1-w
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrow-1-nw" }
+        %span.ui-icon.ui-icon-arrow-1-nw
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrow-2-n-s" }
+        %span.ui-icon.ui-icon-arrow-2-n-s
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrow-2-ne-sw" }
+        %span.ui-icon.ui-icon-arrow-2-ne-sw
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrow-2-e-w" }
+        %span.ui-icon.ui-icon-arrow-2-e-w
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrow-2-se-nw" }
+        %span.ui-icon.ui-icon-arrow-2-se-nw
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowstop-1-n" }
+        %span.ui-icon.ui-icon-arrowstop-1-n
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowstop-1-e" }
+        %span.ui-icon.ui-icon-arrowstop-1-e
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowstop-1-s" }
+        %span.ui-icon.ui-icon-arrowstop-1-s
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowstop-1-w" }
+        %span.ui-icon.ui-icon-arrowstop-1-w
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowthick-1-n" }
+        %span.ui-icon.ui-icon-arrowthick-1-n
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowthick-1-ne" }
+        %span.ui-icon.ui-icon-arrowthick-1-ne
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowthick-1-e" }
+        %span.ui-icon.ui-icon-arrowthick-1-e
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowthick-1-se" }
+        %span.ui-icon.ui-icon-arrowthick-1-se
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowthick-1-s" }
+        %span.ui-icon.ui-icon-arrowthick-1-s
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowthick-1-sw" }
+        %span.ui-icon.ui-icon-arrowthick-1-sw
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowthick-1-w" }
+        %span.ui-icon.ui-icon-arrowthick-1-w
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowthick-1-nw" }
+        %span.ui-icon.ui-icon-arrowthick-1-nw
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowthick-2-n-s" }
+        %span.ui-icon.ui-icon-arrowthick-2-n-s
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowthick-2-ne-sw" }
+        %span.ui-icon.ui-icon-arrowthick-2-ne-sw
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowthick-2-e-w" }
+        %span.ui-icon.ui-icon-arrowthick-2-e-w
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowthick-2-se-nw" }
+        %span.ui-icon.ui-icon-arrowthick-2-se-nw
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowthickstop-1-n" }
+        %span.ui-icon.ui-icon-arrowthickstop-1-n
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowthickstop-1-e" }
+        %span.ui-icon.ui-icon-arrowthickstop-1-e
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowthickstop-1-s" }
+        %span.ui-icon.ui-icon-arrowthickstop-1-s
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowthickstop-1-w" }
+        %span.ui-icon.ui-icon-arrowthickstop-1-w
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowreturnthick-1-w" }
+        %span.ui-icon.ui-icon-arrowreturnthick-1-w
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowreturnthick-1-n" }
+        %span.ui-icon.ui-icon-arrowreturnthick-1-n
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowreturnthick-1-e" }
+        %span.ui-icon.ui-icon-arrowreturnthick-1-e
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowreturnthick-1-s" }
+        %span.ui-icon.ui-icon-arrowreturnthick-1-s
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowreturn-1-w" }
+        %span.ui-icon.ui-icon-arrowreturn-1-w
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowreturn-1-n" }
+        %span.ui-icon.ui-icon-arrowreturn-1-n
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowreturn-1-e" }
+        %span.ui-icon.ui-icon-arrowreturn-1-e
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowreturn-1-s" }
+        %span.ui-icon.ui-icon-arrowreturn-1-s
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowrefresh-1-w" }
+        %span.ui-icon.ui-icon-arrowrefresh-1-w
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowrefresh-1-n" }
+        %span.ui-icon.ui-icon-arrowrefresh-1-n
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowrefresh-1-e" }
+        %span.ui-icon.ui-icon-arrowrefresh-1-e
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrowrefresh-1-s" }
+        %span.ui-icon.ui-icon-arrowrefresh-1-s
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrow-4" }
+        %span.ui-icon.ui-icon-arrow-4
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-arrow-4-diag" }
+        %span.ui-icon.ui-icon-arrow-4-diag
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-extlink" }
+        %span.ui-icon.ui-icon-extlink
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-newwin" }
+        %span.ui-icon.ui-icon-newwin
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-refresh" }
+        %span.ui-icon.ui-icon-refresh
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-shuffle" }
+        %span.ui-icon.ui-icon-shuffle
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-transfer-e-w" }
+        %span.ui-icon.ui-icon-transfer-e-w
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-transferthick-e-w" }
+        %span.ui-icon.ui-icon-transferthick-e-w
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-folder-collapsed" }
+        %span.ui-icon.ui-icon-folder-collapsed
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-folder-open" }
+        %span.ui-icon.ui-icon-folder-open
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-document" }
+        %span.ui-icon.ui-icon-document
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-document-b" }
+        %span.ui-icon.ui-icon-document-b
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-note" }
+        %span.ui-icon.ui-icon-note
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-mail-closed" }
+        %span.ui-icon.ui-icon-mail-closed
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-mail-open" }
+        %span.ui-icon.ui-icon-mail-open
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-suitcase" }
+        %span.ui-icon.ui-icon-suitcase
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-comment" }
+        %span.ui-icon.ui-icon-comment
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-person" }
+        %span.ui-icon.ui-icon-person
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-print" }
+        %span.ui-icon.ui-icon-print
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-trash" }
+        %span.ui-icon.ui-icon-trash
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-locked" }
+        %span.ui-icon.ui-icon-locked
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-unlocked" }
+        %span.ui-icon.ui-icon-unlocked
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-bookmark" }
+        %span.ui-icon.ui-icon-bookmark
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-tag" }
+        %span.ui-icon.ui-icon-tag
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-home" }
+        %span.ui-icon.ui-icon-home
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-flag" }
+        %span.ui-icon.ui-icon-flag
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-calculator" }
+        %span.ui-icon.ui-icon-calculator
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-cart" }
+        %span.ui-icon.ui-icon-cart
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-pencil" }
+        %span.ui-icon.ui-icon-pencil
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-clock" }
+        %span.ui-icon.ui-icon-clock
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-disk" }
+        %span.ui-icon.ui-icon-disk
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-calendar" }
+        %span.ui-icon.ui-icon-calendar
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-zoomin" }
+        %span.ui-icon.ui-icon-zoomin
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-zoomout" }
+        %span.ui-icon.ui-icon-zoomout
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-search" }
+        %span.ui-icon.ui-icon-search
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-wrench" }
+        %span.ui-icon.ui-icon-wrench
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-gear" }
+        %span.ui-icon.ui-icon-gear
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-heart" }
+        %span.ui-icon.ui-icon-heart
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-star" }
+        %span.ui-icon.ui-icon-star
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-link" }
+        %span.ui-icon.ui-icon-link
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-cancel" }
+        %span.ui-icon.ui-icon-cancel
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-plus" }
+        %span.ui-icon.ui-icon-plus
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-plusthick" }
+        %span.ui-icon.ui-icon-plusthick
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-minus" }
+        %span.ui-icon.ui-icon-minus
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-minusthick" }
+        %span.ui-icon.ui-icon-minusthick
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-close" }
+        %span.ui-icon.ui-icon-close
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-closethick" }
+        %span.ui-icon.ui-icon-closethick
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-key" }
+        %span.ui-icon.ui-icon-key
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-lightbulb" }
+        %span.ui-icon.ui-icon-lightbulb
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-scissors" }
+        %span.ui-icon.ui-icon-scissors
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-clipboard" }
+        %span.ui-icon.ui-icon-clipboard
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-copy" }
+        %span.ui-icon.ui-icon-copy
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-contact" }
+        %span.ui-icon.ui-icon-contact
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-image" }
+        %span.ui-icon.ui-icon-image
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-video" }
+        %span.ui-icon.ui-icon-video
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-script" }
+        %span.ui-icon.ui-icon-script
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-alert" }
+        %span.ui-icon.ui-icon-alert
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-info" }
+        %span.ui-icon.ui-icon-info
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-notice" }
+        %span.ui-icon.ui-icon-notice
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-help" }
+        %span.ui-icon.ui-icon-help
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-check" }
+        %span.ui-icon.ui-icon-check
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-bullet" }
+        %span.ui-icon.ui-icon-bullet
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-radio-off" }
+        %span.ui-icon.ui-icon-radio-off
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-radio-on" }
+        %span.ui-icon.ui-icon-radio-on
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-pin-w" }
+        %span.ui-icon.ui-icon-pin-w
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-pin-s" }
+        %span.ui-icon.ui-icon-pin-s
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-play" }
+        %span.ui-icon.ui-icon-play
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-pause" }
+        %span.ui-icon.ui-icon-pause
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-seek-next" }
+        %span.ui-icon.ui-icon-seek-next
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-seek-prev" }
+        %span.ui-icon.ui-icon-seek-prev
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-seek-end" }
+        %span.ui-icon.ui-icon-seek-end
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-seek-first" }
+        %span.ui-icon.ui-icon-seek-first
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-stop" }
+        %span.ui-icon.ui-icon-stop
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-eject" }
+        %span.ui-icon.ui-icon-eject
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-volume-off" }
+        %span.ui-icon.ui-icon-volume-off
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-volume-on" }
+        %span.ui-icon.ui-icon-volume-on
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-power" }
+        %span.ui-icon.ui-icon-power
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-signal-diag" }
+        %span.ui-icon.ui-icon-signal-diag
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-signal" }
+        %span.ui-icon.ui-icon-signal
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-battery-0" }
+        %span.ui-icon.ui-icon-battery-0
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-battery-1" }
+        %span.ui-icon.ui-icon-battery-1
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-battery-2" }
+        %span.ui-icon.ui-icon-battery-2
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-battery-3" }
+        %span.ui-icon.ui-icon-battery-3
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-circle-plus" }
+        %span.ui-icon.ui-icon-circle-plus
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-circle-minus" }
+        %span.ui-icon.ui-icon-circle-minus
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-circle-close" }
+        %span.ui-icon.ui-icon-circle-close
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-circle-triangle-e" }
+        %span.ui-icon.ui-icon-circle-triangle-e
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-circle-triangle-s" }
+        %span.ui-icon.ui-icon-circle-triangle-s
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-circle-triangle-w" }
+        %span.ui-icon.ui-icon-circle-triangle-w
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-circle-triangle-n" }
+        %span.ui-icon.ui-icon-circle-triangle-n
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-circle-arrow-e" }
+        %span.ui-icon.ui-icon-circle-arrow-e
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-circle-arrow-s" }
+        %span.ui-icon.ui-icon-circle-arrow-s
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-circle-arrow-w" }
+        %span.ui-icon.ui-icon-circle-arrow-w
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-circle-arrow-n" }
+        %span.ui-icon.ui-icon-circle-arrow-n
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-circle-zoomin" }
+        %span.ui-icon.ui-icon-circle-zoomin
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-circle-zoomout" }
+        %span.ui-icon.ui-icon-circle-zoomout
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-circle-check" }
+        %span.ui-icon.ui-icon-circle-check
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-circlesmall-plus" }
+        %span.ui-icon.ui-icon-circlesmall-plus
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-circlesmall-minus" }
+        %span.ui-icon.ui-icon-circlesmall-minus
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-circlesmall-close" }
+        %span.ui-icon.ui-icon-circlesmall-close
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-squaresmall-plus" }
+        %span.ui-icon.ui-icon-squaresmall-plus
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-squaresmall-minus" }
+        %span.ui-icon.ui-icon-squaresmall-minus
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-squaresmall-close" }
+        %span.ui-icon.ui-icon-squaresmall-close
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-grip-dotted-vertical" }
+        %span.ui-icon.ui-icon-grip-dotted-vertical
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-grip-dotted-horizontal" }
+        %span.ui-icon.ui-icon-grip-dotted-horizontal
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-grip-solid-vertical" }
+        %span.ui-icon.ui-icon-grip-solid-vertical
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-grip-solid-horizontal" }
+        %span.ui-icon.ui-icon-grip-solid-horizontal
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-gripsmall-diagonal-se" }
+        %span.ui-icon.ui-icon-gripsmall-diagonal-se
+      %li.ui-state-default.ui-corner-all{ title: ".ui-icon-grip-diagonal-se" }
+        %span.ui-icon.ui-icon-grip-diagonal-se
+  #compGroupB.clearfix
+    %h2.demoHeaders
+      Slider
+    #slider.ui-slider.ui-slider-horizontal.ui-widget.ui-widget-content.ui-corner-all
+      .ui-slider-range.ui-widget-header{ style: "left: 17%; width: 50%;" }
+      %a.ui-slider-handle.ui-state-default.ui-corner-all{ style: "left: 17%;", href: "#" }
+      %a.ui-slider-handle.ui-state-default.ui-corner-all{ style: "left: 67%;", href: "#" }
+    %h2.demoHeaders
+      Datepicker
+    #datepicker.hasDatepicker
+      .ui-datepicker-inline.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all
+        .ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all
+          %a.ui-datepicker-prev.ui-corner-all{ onclick: "DP_jQuery.datepicker._adjustDate('#datepicker', -1, 'M');", title: "Prev" }
+            %span.ui-icon.ui-icon-circle-triangle-w
+              Prev
+          %a.ui-datepicker-next.ui-corner-all{ onclick: "DP_jQuery.datepicker._adjustDate('#datepicker', +1, 'M');", title: "Next" }
+            %span.ui-icon.ui-icon-circle-triangle-e
+              Next
+          .ui-datepicker-title
+            %span.ui-datepicker-month
+              July
+            %span.ui-datepicker-year
+              2009
+        %table.ui-datepicker-calendar
+          %thead
+            %tr
+              %th.ui-datepicker-week-end
+                %span{ title: "Sunday" }
+                  Su
+              %th
+                %span{ title: "Monday" }
+                  Mo
+              %th
+                %span{ title: "Tuesday" }
+                  Tu
+              %th
+                %span{ title: "Wednesday" }
+                  We
+              %th
+                %span{ title: "Thursday" }
+                  Th
+              %th
+                %span{ title: "Friday" }
+                  Fr
+              %th.ui-datepicker-week-end
+                %span{ title: "Saturday" }
+                  Sa
+          %tbody
+            %tr
+              %td.ui-datepicker-week-end.ui-datepicker-other-month.ui-datepicker-unselectable.ui-state-disabled
+                \&nbsp;
+              %td.ui-datepicker-other-month.ui-datepicker-unselectable.ui-state-disabled
+                \&nbsp;
+              %td.ui-datepicker-other-month.ui-datepicker-unselectable.ui-state-disabled
+                \&nbsp;
+              %td{ onclick: "DP_jQuery.datepicker._selectDay('#datepicker',6,2009, this);return false;" }
+                %a.ui-state-default{ href: "#" }
+                  1
+              %td{ onclick: "DP_jQuery.datepicker._selectDay('#datepicker',6,2009, this);return false;" }
+                %a.ui-state-default{ href: "#" }
+                  2
+              %td{ onclick: "DP_jQuery.datepicker._selectDay('#datepicker',6,2009, this);return false;" }
+                %a.ui-state-default{ href: "#" }
+                  3
+              %td.ui-datepicker-week-end{ onclick: "DP_jQuery.datepicker._selectDay('#datepicker',6,2009, this);return false;" }
+                %a.ui-state-default{ href: "#" }
+                  4
+            %tr
+              %td.ui-datepicker-week-end{ onclick: "DP_jQuery.datepicker._selectDay('#datepicker',6,2009, this);return false;" }
+                %a.ui-state-default{ href: "#" }
+                  5
+              %td{ onclick: "DP_jQuery.datepicker._selectDay('#datepicker',6,2009, this);return false;" }
+                %a.ui-state-default{ href: "#" }
+                  6
+              %td{ onclick: "DP_jQuery.datepicker._selectDay('#datepicker',6,2009, this);return false;" }
+                %a.ui-state-default{ href: "#" }
+                  7
+              %td{ onclick: "DP_jQuery.datepicker._selectDay('#datepicker',6,2009, this);return false;" }
+                %a.ui-state-default{ href: "#" }
+                  8
+              %td.ui-datepicker-days-cell-over.ui-datepicker-current-day.ui-datepicker-today{ onclick: "DP_jQuery.datepicker._selectDay('#datepicker',6,2009, this);return false;" }
+                %a.ui-state-default.ui-state-highlight.ui-state-active.ui-state-hover{ href: "#" }
+                  9
+              %td{ onclick: "DP_jQuery.datepicker._selectDay('#datepicker',6,2009, this);return false;" }
+                %a.ui-state-default{ href: "#" }
+                  10
+              %td.ui-datepicker-week-end{ onclick: "DP_jQuery.datepicker._selectDay('#datepicker',6,2009, this);return false;" }
+                %a.ui-state-default{ href: "#" }
+                  11
+            %tr
+              %td.ui-datepicker-week-end{ onclick: "DP_jQuery.datepicker._selectDay('#datepicker',6,2009, this);return false;" }
+                %a.ui-state-default{ href: "#" }
+                  12
+              %td{ onclick: "DP_jQuery.datepicker._selectDay('#datepicker',6,2009, this);return false;" }
+                %a.ui-state-default{ href: "#" }
+                  13
+              %td{ onclick: "DP_jQuery.datepicker._selectDay('#datepicker',6,2009, this);return false;" }
+                %a.ui-state-default{ href: "#" }
+                  14
+              %td{ onclick: "DP_jQuery.datepicker._selectDay('#datepicker',6,2009, this);return false;" }
+                %a.ui-state-default{ href: "#" }
+                  15
+              %td{ onclick: "DP_jQuery.datepicker._selectDay('#datepicker',6,2009, this);return false;" }
+                %a.ui-state-default{ href: "#" }
+                  16
+              <td class="" onclick="DP_jQuery.datepicker._selectDay('#datepicker',6,2009, this);r
+        %h2.demoHeaders
+          Progressbar
+        #progressbar.ui-progressbar.ui-widget.ui-widget-content.ui-corner-all{ "aria-valuenow": "20", "aria-valuemax": "100", "aria-valuemin": "0", role:  "progressbar" }
+          .ui-progressbar-value.ui-widget-header.ui-corner-left{ style: "width: 20%;" }
+        %h2.demoHeaders
+          Highlight / Error
+        .ui-widget
+          .ui-state-highlight.ui-corner-all{ style: "padding: 0pt 0.7em; margin-top: 20px;" }
+            %p
+              %span.ui-icon.ui-icon-info{ style: "float: left; margin-right: 0.3em;" }
+              %strong
+                Hey!
+              Sample ui-state-highlight style.
+        %br
+        .ui-widget
+          .ui-state-error.ui-corner-all{ style: "padding: 0pt 0.7em;" }
+            %p
+              %span.ui-icon.ui-icon-alert{ style: "float: left; margin-right: 0.3em;" }
+              %strong
+                Alert:
+              Sample ui-state-error style.
