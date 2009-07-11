@@ -313,15 +313,15 @@
   };
 
   // Calling haml on a node converts the passed in array to dom children
-  $.fn.haml = function () {
-    var haml = arguments;
+  $.fn.haml = function (haml, action) {
+    action = action || "append";
 
     // Build the dom on a non-attached node
     var newnode = $(document.createElement("div"));
     exec_haml(newnode, haml);
-
-    // Then attach it to the page.
-    this.append(newnode);
+    
+    // Then move it's children to the real location
+    this[action].call(this, newnode.children());
 
     // Flush action queue
     $.each(action_queue, function () {
@@ -335,7 +335,7 @@
       }
     });
     action_queue = [];
-
+    
     return this;
   };
 
