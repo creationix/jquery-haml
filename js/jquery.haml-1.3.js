@@ -10,11 +10,10 @@
 // Tim Caswell <tim@creationix.com>     //
 //                                      //
 //////////////////////////////////////////
-
 (function ($) {
 
-  var last_node;
-  
+  var action_queue = [];
+
   // Test an object for it's constructor type. Sort of a reverse, discriminatory instanceof
   function isTypeOf(t, c) {
     if (t === undefined) {
@@ -42,52 +41,50 @@
       return false;
     }
     // Must start with '.', '#', or '%'
-    if (!(obj[0] === '.' || obj[0] === '#' || obj[0] === '%')) {
+    if (! (obj[0] === '.' || obj[0] === '#' || obj[0] === '%')) {
       return false;
     }
     return true;
   }
-  
-  
-  // The workhorse that creates the node.
-  function exec_haml(parent, haml) {
 
-    var node = parent,
-      css, actions;
-    
-    function apply_haml(node, part) {
+  // The workhorse that creates the node.
+  function exec_haml(node, haml) {
+
+    var css;
+    var actions;
+
+    function apply_haml(parent, part) {
       if (isTypeOf(part, 'String') && part.length > 0) {
         // Strip of leading backslash
         if (part[0] === '\\') {
           part = part.substr(1);
         }
-        node.append(document.createTextNode(part));
+        parent.append(document.createTextNode(part));
       }
       if (isTypeOf(part, 'Number')) {
-        node.append(document.createTextNode(part));
+        parent.append(document.createTextNode(part));
       }
       if (isTypeOf(part, 'Array') && part.length > 0) {
-        exec_haml(node, part);
+        exec_haml(parent, part);
       }
     }
 
-    if (haml.length && haml.length > 0)
-    {
+    if (haml.length && haml.length > 0) {
       if (is_selector(haml[0])) {
         // Pull the selector off the front
         // Parse out the selector information
         // Default tag to div if not specified
         var selector = haml.shift(),
-          classes = selector.match(/\.[^\.#]+/g),
-          ids = selector.match(/#[^\.#]+/g),
-          tag = selector.match(/^%([^\.#]+)/g);
+        classes = selector.match(/\.[^\.#]+/g),
+        ids = selector.match(/#[^\.#]+/g),
+        tag = selector.match(/^%([^\.#]+)/g);
         tag = tag ? tag[0].substr(1) : 'div';
 
         // Create the node
         var newnode = $(document.createElement(tag));
         node.append(newnode);
         node = newnode;
-        
+
         // Parse the attributes if there are any
         if (haml.length > 0 && isTypeOf(haml[0], 'Object')) {
           var attributes = haml.shift();
@@ -109,7 +106,7 @@
             }
           });
         }
-        
+
         // Add in the classes from the selector
         if (classes) {
           $.each(classes, function () {
@@ -119,22 +116,17 @@
 
         // Add in any css from underscore styles        
         if (css) {
-          node.css(css);  
+          node.css(css);
         }
-        
+
         // Process jquery actions as well
         if (actions) {
           $.each(actions, function (method) {
-            // $ is a special case that means onload
-            if (method === '$')
-            {
-              this.apply(node, []);
-            }
-            // otherwise call method on the jquery object with given params.
-            else
-            {
-              node[method].apply(node, this);
-            }
+            action_queue.push({
+              node: node,
+              method: method,
+              params: this
+            });
           });
         }
       }
@@ -145,13 +137,9 @@
         apply_haml(node, part);
       }
     }
-    else
-    {
+    else {
       apply_haml(node, haml);
     }
-    
-    last_node = node;
-    return node;
   }
 
   $.haml_parse = function (text, tabsize) {
@@ -175,14 +163,14 @@
     var stack = [node];
     var node_indent = 0;
     var indent = 0;
-    
+
     function parse_push() {
       stack.push(node);
       var new_node = [];
       node.push(new_node);
       node = new_node;
     }
-    
+
     function parse_pop() {
       node = stack.pop();
       if (!node) {
@@ -202,12 +190,12 @@
       indent = line.match(indent_regex)[0];
       line = line.substr(indent.length);
       indent = indent.replace("\t", tab).length / tabsize;
-      
+
       // Skip comments
       if (line.charAt(0) === '/') {
         return;
       }
-      
+
       // Check for outdents
       while (indent < node_indent) {
         node_indent -= 1;
@@ -219,29 +207,28 @@
         parse_pop();
         node_indent = -1;
       }
-      
+
       // Check for too much indent
       if (indent > last_indent + 1) {
         throw "Whitespace error: too much indentation";
       }
-      
+
       // Chek for normal indent
       else if (indent === last_indent + 1) {
         last_indent = indent;
       }
-      
+
       // Check for a selector.  If there is one, then parse it.
       var selector = line.match(selector_regex);
       if (selector && selector[0].length > 0) {
         selector = selector[0];
         line = line.substr(selector.length);
-        
-        
+
         if (indent === node_indent) {
           parse_pop();
           parse_push();
         }
-        
+
         else if (indent > node_indent) {
           parse_push();
           node_indent = indent;
@@ -291,12 +278,12 @@
         }
         line = line.replace(indent_regex, '');
       }
-      
+
       // Skip blank lines
       if (!line.match(empty_regex)) {
         node.push(line);
       }
-      
+
     });
     return haml;
   };
@@ -309,14 +296,14 @@
       $(this).html(html);
     });
   };
-  
+
   // Converts markdown to html
   // Also supports simple variable replacement
   //
   // NOTE: This requires <http://attacklab.net/showdown/>
   $.markdown = function (markdown, data) {
     var converter = new Showdown.converter();
-    var html =  converter.makeHtml(markdown);
+    var html = converter.makeHtml(markdown);
     if (data) {
       $.each(data, function (k, v) {
         html = html.replace(new RegExp("{" + k + "}", "g"), v);
@@ -324,12 +311,32 @@
     }
     return html;
   };
-  
+
   // Calling haml on a node converts the passed in array to dom children
   $.fn.haml = function () {
     var haml = arguments;
-    exec_haml(this, haml);
+
+    // Build the dom on a non-attached node
+    var newnode = $(document.createElement("div"));
+    exec_haml(newnode, haml);
+
+    // Then attach it to the page.
+    this.append(newnode);
+
+    // Flush action queue
+    $.each(action_queue, function () {
+      // $ is a special case that means onload
+      if (this.method === '$') {
+        this.apply(this.node, []);
+      }
+      // otherwise call method on the jquery object with given params.
+      else {
+        this.node[this.method].apply(this.node, this.params);
+      }
+    });
+    action_queue = [];
+
     return this;
   };
 
-}(jQuery));
+} (jQuery));
