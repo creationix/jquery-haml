@@ -5,6 +5,11 @@ jQuery-haml is a [haml][] like language written in JSON. This allows for easy do
 You can see a small example page using it at <http://static.creationix.com/jquery-haml/examples/index.html>
 
 View source to see that all the content is build after page load.
+
+# NOTE: This project was recently split
+
+The server-side half of the component stayed at the old name of [haml-js][] and has it's own documentation and everything there.
+
 ---------------------
 
 jQuery-haml is a [jQuery][] plugin. In order to use it you simply include the `jquery.haml-1.3.js` file in your jQuery project and use it as a dom builder.
@@ -128,3 +133,4 @@ Since jquery-haml can get out of hand for large applications, I wrote an abstrac
 [jquery]: http://jquery.com/
 [jquery-ui]: http://jqueryui.com/
 [TopCloud]: http://github.com/creationix/topcloud
+[haml-js]: http://github.com/creationix/haml-js
