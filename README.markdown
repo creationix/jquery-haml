@@ -1,3 +1,7 @@
+# UNDER CONSTRUCTION
+
+This project is being renamed and split, so it's currently under flux, check back in few minutes.
+
 Haml-js
 =======
 
