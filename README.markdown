@@ -1,18 +1,12 @@
-Haml-js
-=======
+# Haml-js
 
-Haml-js is a haml like language written in JSON. This allows for easy dom building so that web apps
-can do more work independent of the server for a better user experience. See
-<http://static.creationix.com/haml_js/test.html> for a **demo**. Based on
-<http://haml.hamptoncatlin.com/> from the ruby world. Install jQuery plugin
+Haml-js is a [haml][] like language written in JSON. This allows for easy dom building so that web apps can do more work independent of the server for a better user experience. Based on [haml][] from the ruby world.
 
 ---------------------
 
-haml-js is a jQuery plugin.  In order to use it you simply include the `jquery.haml-1.3.js` file
-in your jquery project and use it as a dom builder.
+haml-js is a [jQuery][] plugin. In order to use it you simply include the `jquery.haml-1.3.js` file in your jQuery project and use it as a dom builder.
 
-How to use
-----------
+## How to use
 
 ### Basic Syntax
 
@@ -44,15 +38,9 @@ Here is the first example from the haml site converted to haml-js:
       </div>
     </div>
 
-One thing you'll notice right away is that this is encoded in pure JSON. This means that you can
-stream it from a server via ajax calls and it can be executed in the browser to create dom
-structures on the fly.
+One thing you'll notice right away is that this is encoded in pure JSON. This means that you can stream it from a server via ajax calls and it can be executed in the browser to create dom structures on the fly.
 
-The basic rules are very similar to the real haml for ruby. If the first item in a list is a
-string, then that is the css selector for that node. It consists of `element#id.class`. If the
-element is left out, haml-js will assume div. You can have multiple css classes and even include
-spaces. The id and class are of course optional. After that, everything in the list is considered
-content inside the node. Arrays are child nodes and more strings are text nodes.
+The basic rules are very similar to the real haml for ruby. If the first item in a list is a string, then that is the css selector for that node. It consists of `element#id.class`. If the element is left out, haml-js will assume div. You can have multiple css classes and even include spaces. The id and class are of course optional. After that, everything in the list is considered content inside the node. Arrays are child nodes and more strings are text nodes.
 
 ### Attributes syntax
 
@@ -66,9 +54,7 @@ Here is another example with some html attributes specified:
 
     <strong class="code" style="color:red;">Hello, World!</strong>
 
-The new thing to note here is that we can specify html attributes. This is done by including a json
-object after the string representing the node's css selector. The keys and values become the
-attributes of the html node.
+The new thing to note here is that we can specify html attributes. This is done by including a json object after the string representing the node's css selector. The keys and values become the attributes of the html node.
 
 ### CSS Special Syntax
 
@@ -86,17 +72,11 @@ Sometimes css can be complex enough that some structure is desired.
       <div class="greeting" style="margin-top:200px;text-align:center;">Hello, World!</div>
     </div>
 
-When `css`, is used as an attribute, the value is a json object with key/value pairs
-representing the css styles. These will be applied using jQuery's css method. Note that other
-parameters can be used in this same overall hash. Also if prefered, a regular style attribute can be
-specified with manually formatted css.
+When `css`, is used as an attribute, the value is a json object with key/value pairs representing the css styles. These will be applied using jQuery's css method. Note that other parameters can be used in this same overall hash. Also if preferred, a regular style attribute can be specified with manually formatted css.
 
 ### Javascript jQuery plugin Syntax
 
-This is where this template language/framework really shines. Until now, this had little power over
-server side html generation or other dom builders like the ones built into other frameworks. Javascript
-execution syntax allows you to declaratively schedule JavaScript methods to be called when the node gets
-attached to the page.
+This is where this template language/framework really shines. Until now, this had little power over server side html generation or other dom builders like the ones built into other frameworks. Javascript execution syntax allows you to declaratively schedule JavaScript methods to be called when the node gets attached to the page.
 
 **haml-js**
 
@@ -110,45 +90,38 @@ attached to the page.
       <a href="#" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 60%;"/>
     </div>
 
-This will render a fully functional slider widget from the jQuery-ui library. Internally it queues
-up an event to call the `slider` method on the created node once it's attached to some element
-that's part of the page. Like the css syntax, this is encoded as an attribute. If the attribute it
-dollar, `$`, then the key/value pairs are method name and method parameters that are schedules to be
-applied to the node once it's live.
+This will render a fully functional slider widget from the [jQuery-ui][] library. Internally it queues up an event to call the `slider` method on the created node once it's attached to some element that's part of the page. Like the css syntax, this is encoded as an attribute. If the attribute it dollar, `$`, then the key/value pairs are method name and method parameters that are schedules to be applied to the node once it's live.
 
 ### Javascript onload Syntax
 
-Sometimes the jquery plugins aren't enough, or you need to call the same plugin more than once, but
-only ome key is allowed in a hash. This is where the onload syntax comes in handy.
+Sometimes the jquery plugins aren't enough, or you need to call the same plugin more than once, but only ome key is allowed in a hash. This is where the onload syntax comes in handy.
 
     ["%div", {style: "width:260px; margin:15px;", $:{
       slider: [{value: 60}],
       $: function() { this.slider('disable'); }
     }}]
 
-In this example, we wanted to call the disable action on the slider plugin after turning the div
-into a slider. This was done with a generic onload function. The function given will be called in
-scope of the jquery node.
+In this example, we wanted to call the disable action on the slider plugin after turning the div into a slider. This was done with a generic onload function. The function given will be called in scope of the jquery node.
 
 ### Turning the haml-js into DOM HTML
 
-Usually you will be wanting to attach these element to some part of the page and so the this format
-is used more often. This is the `.haml` plugin that all jQuery object now have.
+Usually you will be wanting to attach these element to some part of the page and so the this format is used more often. This is the `.haml` plugin that all jQuery object now have.
 
     $("body").haml(["%p", "Hello ", ["%img",{src:"logo.jpg"}]]);
 
-This will create the new element and append it to the end of the body tag. Once it's the recursive
-function gets to the last step and appends the element tree to the page, any event's queued up would
-then take place.
+This will create the new element and append it to the end of the body tag. Once it's the recursive function gets to the last step and appends the element tree to the page, any event's queued up would then take place.
 
 Here is a fun one.  Add a paragraph saying "Hello World" onto every element in a page.
 
-$('*').haml(["%p", "Hello World"])
+    $('*').haml(["%p", "Hello World"])
 
 Run that in the Javascript console of any page that has jquery-haml loaded and watch the messages fly.
 
 ## TopCloud
 
-Since jquery-haml can get out of hand for large application, I wrote an abstraction layer on top of it.  Check out [TopCloud][].
+Since jquery-haml can get out of hand for large applications, I wrote an abstraction layer on top of it.  Check out [TopCloud][].
 
+[haml]: http://haml.hamptoncatlin.com/
+[jquery]: http://jquery.com/
+[jquery-ui]: http://jqueryui.com/
 [TopCloud]: http://github.com/creationix/topcloud
