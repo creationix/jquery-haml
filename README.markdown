@@ -129,6 +129,16 @@ Run that in the Javascript console of any page that has jquery-haml loaded and w
 
 Since jquery-haml can get out of hand for large applications, I wrote an abstraction layer on top of it.  Check out [TopCloud][].
 
+## Get Involved
+
+If you want to use this project and something is missing then send me a message.  I'm very busy and have several open source projects I manage.  I'll contribute to this project as I have time, but if there is more interest for some particular aspect, I'll work on it a lot faster.  Also you're welcome to fork this project and send me patches/pull-requests.
+
+## License
+
+jQuery-haml is [licensed][] under the [MIT license][].
+
+[MIT license]: http://creativecommons.org/licenses/MIT/
+[licensed]: http://github.com/creationix/jquery-haml/blob/master/LICENSE
 [haml]: http://haml.hamptoncatlin.com/
 [jquery]: http://jquery.com/
 [jquery-ui]: http://jqueryui.com/
