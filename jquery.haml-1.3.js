@@ -11,7 +11,7 @@
 //////////////////////////////////////////
 
 (function ($) {
-  
+
   var action_queue = [], data_cache = {};
 
   // Test an object for it's constructor type. Sort of a reverse, discriminatory instanceof
@@ -47,8 +47,8 @@
     }
     return true;
   }
-  
-  
+
+
   // The workhorse that creates the node.
   function exec_haml(node, haml) {
 
@@ -57,14 +57,14 @@
     // Shallow copy haml so we don't eat our input when we shift the array
     // Also this turns "arguments" pseudo-arrays to real arrays
     input = Array.prototype.slice.call(haml, 0);
-    
+
     function apply_haml(parent, part) {
-      
+
       // Ignore undefined and null, they only break things.
       if (part === undefined || part === null) {
         return;
       }
-    
+
       // Pass dom and jquery nodes through as is
       if (part.nodeType || part.jquery) {
         parent.append(part);
@@ -84,7 +84,7 @@
         parent.append(document.createTextNode(part));
         return;
       }
-      
+
       // Recursivly run arrays
       if (isTypeOf(part, 'Array') && part.length > 0) {
         exec_haml(parent, part);
@@ -106,7 +106,7 @@
 
         // Create the node
         newnode = $(document.createElement(tag));
-        
+
         // Parse the attributes if there are any
         if (input.length > 0 && isTypeOf(input[0], 'Object')) {
           attributes = input.shift();
@@ -129,7 +129,7 @@
             }
           });
         }
-        
+
         // Add in the classes from the selector
         if (classes) {
           $.each(classes, function () {
@@ -137,15 +137,15 @@
           });
         }
 
-        // Add in any css from underscore styles        
+        // Add in any css from underscore styles
         if (css) {
-          newnode.css(css);  
+          newnode.css(css);
         }
 
         // Move a level deeper in the dom tree
         node.append(newnode);
         node = newnode;
-        
+
         // Process jquery actions as well
         if (actions) {
           $.each(actions, function (method) {
@@ -154,7 +154,7 @@
         }
       }
 
-      // Add in content with recursive call      
+      // Add in content with recursive call
       $.each(input, function () {
         apply_haml(node, this);
       });
@@ -164,7 +164,7 @@
       apply_haml(node, input);
     }
   }
-  
+
   // jQuery events are queued up till we're sure the node exists in the main dom.  Once
   // it's safe, this function is called to actually flush the queue and execute the function calls.
   function flush_queue() {
@@ -183,31 +183,44 @@
     });
     action_queue = [];
   }
-  
-  // Calling haml on a node converts the passed in array to dom children
-  $.fn.haml = function (/* haml1, haml2, ... */) {
-    
-    var haml, newnode;
-    
-    // Shallow copy and convert to array
-    haml = Array.prototype.slice.call(arguments, 0);
-    
+
+  function real_haml(haml) {
+    var newnode;
+
     // Build the dom on a non-attached node
     newnode = $(document.createElement("div"));
     exec_haml(newnode, haml);
-    
+
     // Then attach it's children to the page.
     this.append(newnode.children());
-    
+
     // Flush action queue once we're on the page
     if (this.closest('body').length > 0) {
       flush_queue();
     }
 
+    return newnode.children();
+  }
+
+  // Like the original haml, but returns the new nodes instead of the
+  // original matched set.
+  $.fn.insertHaml = function (/* haml1, haml2, ... */) {
+    return real_haml.call(this,
+      Array.prototype.slice.call(arguments, 0)
+    );
+  };
+
+  // Calling haml on a node converts the passed in array to dom children
+  $.fn.haml = function (/* haml1, haml2, ... */) {
+    real_haml.call(this,
+      Array.prototype.slice.call(arguments, 0)
+    );
+
     // Return "this" to allow for chaining.
     return this;
+
   };
-  
+
   // static helper functions
   $.haml = {
     // This is a constructor to create a piece of page that is re-drawable.
@@ -216,7 +229,7 @@
     // and call update() on the placeholder whenever you want it to redraw itself.
     placeholder: function (callback) {
       var children;
-      
+
       function inject()  {
         // Build the dom on a non-attached node
         var node = $(document.createElement("div"));
@@ -224,7 +237,7 @@
         children = node.children();
         return children;
       }
-      
+
       // Replace the first child node with the new children and remove other
       // old children if there are any.
       function update() {
@@ -237,7 +250,7 @@
         });
         flush_queue();
       }
-      
+
       return {
         inject: inject,
         update: update
@@ -251,7 +264,7 @@
     // onDemand returns functions that returns a placeholder.  See above for details.
     onDemand: function (data_provider, loading_message) {
       var placeholder;
-      
+
       loading_message = ["%div", {style: "text-align: center; cursor: wait"}, loading_message || "Loading..."];
 
       return function (renderer/*, param1, param2...*/) {
