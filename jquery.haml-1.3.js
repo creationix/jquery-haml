@@ -241,9 +241,10 @@
       // Replace the first child node with the new children and remove other
       // old children if there are any.
       function update() {
+        var args = arguments;
         $.each(children, function (i, child) {
           if (i === 0) {
-            $(child).replaceWith(inject.apply(this, arguments));
+            $(child).replaceWith(inject.apply(this, args));
           } else {
             $(child).remove();
           }
