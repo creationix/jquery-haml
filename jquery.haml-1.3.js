@@ -108,7 +108,7 @@
         newnode = $(document.createElement(tag));
 
         // Parse the attributes if there are any
-        if (input.length > 0 && isTypeOf(input[0], 'Object')) {
+        if (input.length > 0 && isTypeOf(input[0], 'Object') && !input[0].nodeType && !input[0].jquery) {
           attributes = input.shift();
           css = extractor(attributes, 'css');
           actions = extractor(attributes, '$');
