@@ -192,14 +192,14 @@
     exec_haml(newnode, haml);
 
     // Then attach it's children to the page.
-    this.append(newnode.children());
+    this.append(newnode.contents());
 
     // Flush action queue once we're on the page
     if (this.closest('body').length > 0) {
       flush_queue();
     }
 
-    return newnode.children();
+    return newnode.contents();
   }
 
   // Like the original haml, but returns the new nodes instead of the
@@ -234,7 +234,7 @@
         // Build the dom on a non-attached node
         var node = $(document.createElement("div"));
         node.haml(callback.apply(this, arguments));
-        children = node.children();
+        children = node.contents();
         return children;
       }
 
