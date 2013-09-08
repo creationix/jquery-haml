@@ -11,6 +11,9 @@
     "jquery",
     "haml"
   ],
+  "dependencies": {
+        "jquery": "jquery"
+  },
   "license": "MIT",
   "ignore": [
     "**/.*",
