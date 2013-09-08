@@ -1,0 +1,26 @@
+{
+  "name": "jquery-haml",
+  "version": "1.3.0",
+  "homepage": "https://github.com/creationix/jquery-haml",
+  "authors": [
+    "Tim Caswell <tim@creationix.com>"
+  ],
+  "description": "jQuery-haml is haml like language written in JSON",
+  "main": "jquery.haml-1.3.js",
+  "keywords": [
+    "jquery",
+    "haml"
+  ],
+  "dependencies": {
+        "jquery": ""
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "examples"
+  ]
+}
