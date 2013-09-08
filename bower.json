@@ -12,7 +12,7 @@
     "haml"
   ],
   "dependencies": {
-        "jquery": "jquery"
+        "jquery": ""
   },
   "license": "MIT",
   "ignore": [
